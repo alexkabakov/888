@@ -1,0 +1,9 @@
+---
+- name: Create and copy test.txt file
+  hosts: centos7apache
+  become: true
+  tasks:
+    - name: Copy test.txt to remote Apache root directory
+      copy:
+        src: /etc/ansible/test.txt
+        dest: /var/www/html/test.txt

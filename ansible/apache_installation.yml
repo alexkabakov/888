@@ -1,0 +1,21 @@
+---
+- name: Install Apache on CentOS 7
+  hosts: centos7apache
+  become: true
+  tasks:
+    - name: Install EPEL repository
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache and enable it on boot
+      service:
+        name: httpd
+        state: started
+        enabled: true
+

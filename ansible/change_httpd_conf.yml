@@ -1,0 +1,11 @@
+---
+- name: Change httpd.conf to listen on port 8080
+  hosts: centos7apache
+  become: true
+  tasks:
+    - name: Change httpd.conf
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen '
+        line: 'Listen 8080'
+

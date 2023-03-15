@@ -1,0 +1,13 @@
+---
+- name: Download Apache source file to /usr/local/src directory
+  hosts: webservers
+  tasks:
+  	- name: Download Apache tarball file
+      shell: wget https://dlcdn.apache.org/httpd/httpd-2.4.52.tar.gz
+      args:
+      	chdir: /usr/local/src
+# yum install httpdz
+# systemctl start httpd
+# systemctl enable httpd
+# systemctl status httpd
+

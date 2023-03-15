@@ -1,0 +1,22 @@
+---
+- name: Create default.html file using Jinja2 template
+  hosts: centos7apache
+  become: yes
+
+  vars:
+    date_time: "{{ ansible_date_time.date }} {{ ansible_date_time.time }}"
+
+  tasks:
+    - name: Create directory for web files
+      file:
+        path: "/var/www/html"
+        state: directory
+        mode: '0755'
+
+    - name: Create default.html file using Jinja2 template
+      template:
+        src: html_template.j2
+        dest: /var/www/html/default1.html
+      vars:
+        date_time: "{{ date_time }}"
+

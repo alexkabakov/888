@@ -1,0 +1,12 @@
+---
+ - name: Ansible archive Examples
+   user: centos
+   hosts: centos7apache
+   tasks:
+    - name: Compress Directory contents
+      become: yes
+      archive:
+        path: /apps/tomcat
+        dest: /apps/tomcat.tar  
+        format: tar
+
